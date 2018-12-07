@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Test extends Component {
+class Test extends Component {
   state = {
     title: '',
     body: ''
@@ -29,8 +29,18 @@ export default class Test extends Component {
   //   console.log('componentWillUpdate...');
   // }
 
-  // componentWillReceiveProps() {
+  // componentWillReceiveProps(nextProps, nextState) {
   //   console.log('componentWillReceiveProps...');
+  // }
+
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return {
+  //     test: 'something'
+  //   };
+  // }
+
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   console.log(' getSnapshotBeforeUpdate...');
   // }
 
   render() {
@@ -43,3 +53,5 @@ export default class Test extends Component {
     );
   }
 }
+
+export default Test;

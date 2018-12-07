@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class AddContact extends Component {
   constructor(props) {
@@ -16,13 +16,14 @@ class AddContact extends Component {
       email: this.emailInput.current.value,
       phone: this.phoneInput.current.value
     };
+
     console.log(contact);
   };
 
   static defaultProps = {
-    name: "Fred Smith",
-    email: "fred@yahoo.com",
-    phone: "777-777-7777"
+    name: 'Fred Smith',
+    email: 'fred@yahoo.com',
+    phone: '777-777-7777'
   };
 
   render() {
@@ -57,7 +58,7 @@ class AddContact extends Component {
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
               <input
-                type="phone"
+                type="text"
                 name="phone"
                 className="form-control form-control-lg"
                 placeholder="Enter Phone..."

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
-// import uuid from 'uuid';
 import TextInputGroup from '../layout/TextInputGroup';
 import axios from 'axios';
 
@@ -12,14 +11,12 @@ class AddContact extends Component {
     errors: {}
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
-
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
 
     const { name, email, phone } = this.state;
 
-    // Check for errors
+    // Check For Errors
     if (name === '') {
       this.setState({ errors: { name: 'Name is required' } });
       return;
@@ -45,8 +42,10 @@ class AddContact extends Component {
       'https://jsonplaceholder.typicode.com/users',
       newContact
     );
+
     dispatch({ type: 'ADD_CONTACT', payload: res.data });
 
+    // Clear State
     this.setState({
       name: '',
       email: '',
@@ -56,6 +55,8 @@ class AddContact extends Component {
 
     this.props.history.push('/');
   };
+
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     const { name, email, phone, errors } = this.state;

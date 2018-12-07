@@ -16,6 +16,7 @@ class EditContact extends Component {
     const res = await axios.get(
       `https://jsonplaceholder.typicode.com/users/${id}`
     );
+
     const contact = res.data;
 
     this.setState({
@@ -25,14 +26,12 @@ class EditContact extends Component {
     });
   }
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
-
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
 
     const { name, email, phone } = this.state;
 
-    // Check for errors
+    // Check For Errors
     if (name === '') {
       this.setState({ errors: { name: 'Name is required' } });
       return;
@@ -60,9 +59,10 @@ class EditContact extends Component {
       `https://jsonplaceholder.typicode.com/users/${id}`,
       updContact
     );
+
     dispatch({ type: 'UPDATE_CONTACT', payload: res.data });
 
-    // Clear the state
+    // Clear State
     this.setState({
       name: '',
       email: '',
@@ -72,6 +72,8 @@ class EditContact extends Component {
 
     this.props.history.push('/');
   };
+
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     const { name, email, phone, errors } = this.state;

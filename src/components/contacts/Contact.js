@@ -21,6 +21,7 @@ class Contact extends Component {
   render() {
     const { id, name, email, phone } = this.props.contact;
     const { showContactInfo } = this.state;
+
     return (
       <Consumer>
         {value => {
@@ -28,13 +29,13 @@ class Contact extends Component {
           return (
             <div className="card card-body mb-3">
               <h4>
-                {name}
+                {name}{' '}
                 <i
-                  onClick={() => {
+                  onClick={() =>
                     this.setState({
                       showContactInfo: !this.state.showContactInfo
-                    });
-                  }}
+                    })
+                  }
                   className="fas fa-sort-down"
                   style={{ cursor: 'pointer' }}
                 />
